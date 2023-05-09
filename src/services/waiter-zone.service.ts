@@ -6,7 +6,7 @@ import {AdministratorService} from "./administrator.service";
 export class WaiterZoneService extends KitchenZoneService {
 
   constructor(administratorService: AdministratorService) {
-    super(2, 1, null, administratorService);
+    super({ countThreads: 2, countSubTasks: 1 }, null, administratorService);
   }
 
   createTasks(pizzaContext: PizzaContext): Task<PizzaContext>[] {

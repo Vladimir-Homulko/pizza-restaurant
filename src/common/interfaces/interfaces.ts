@@ -34,3 +34,8 @@ export interface OrderReport {
   timeStart: number;
   timeEnd: number;
 }
+
+export interface ZoneSettings {
+  countThreads: number;
+  countSubTasks: number;
+}

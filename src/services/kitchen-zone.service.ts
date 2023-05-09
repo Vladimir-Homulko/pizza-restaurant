@@ -1,4 +1,4 @@
-import {PizzaContext, Task} from "../common/interfaces/interfaces";
+import {ZoneSettings, PizzaContext, Task} from "../common/interfaces/interfaces";
 import {ExecutorService} from "./executor.service";
 import {AdministratorService} from "./administrator.service";
 
@@ -9,14 +9,13 @@ export abstract class KitchenZoneService {
   private administratorService: AdministratorService;
 
   protected constructor(
-    countThreads: number,
-    countSubTasks: number,
+    operations: ZoneSettings,
     nextZone: KitchenZoneService | null,
     administratorService: AdministratorService
   ) {
     this.nextZone = nextZone;
-    this.countSubTasks = countSubTasks;
-    this.executorService = new ExecutorService(countThreads);
+    this.countSubTasks = operations.countSubTasks;
+    this.executorService = new ExecutorService(operations.countThreads);
     this.administratorService = administratorService;
   }
 
