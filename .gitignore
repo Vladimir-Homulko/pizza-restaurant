@@ -1,0 +1,12 @@
+# IDE
+.idea
+.vscode
+.DS_Store
+
+# App temp
+/node_modules
+/dist
+/mongo_volume
+
+# Env
+.env

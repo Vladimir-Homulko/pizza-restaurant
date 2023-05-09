@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - database
+    env_file:
+      - .env
+    ports:
+      - "${PORT}:${PORT}"
+  database:
+    hostname: database
+    image: mongo:6.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: pizza-restaurant
+    volumes:
+      - ./mongo_volume:/data/db
+    ports:
+      - "27017:27017"
+volumes:
+  database:
